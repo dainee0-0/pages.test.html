@@ -4,9 +4,145 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>dainee</title>
+    <link rel="stylesheet" href="./reset.css" />
+    <link rel="stylesheet" href="./style.css" />
   </head>
+  <script>
+    window.addEventListener("load", function () {
+      var elements = document.querySelectorAll(".sd");
+      var delay = 0;
+
+      elements.forEach(function (element) {
+        element.classList.add("transition-effect");
+        element.style.opacity = "0";
+        element.style.transform = "translateY(-100px)";
+
+        setTimeout(function () {
+          element.style.opacity = "1";
+          element.style.transform = "translateY(0)";
+        }, delay * 200);
+
+        delay += 1;
+      });
+    });
+  </script>
+  <script>
+    window.addEventListener("load", function () {
+      var homeText = document.querySelector(".home_text");
+      var letters = homeText.textContent.trim().split("");
+
+      homeText.innerHTML = ""; // 원본 텍스트 삭제
+
+      letters.forEach(function (letter, index) {
+        var span = document.createElement("span");
+        span.textContent = letter;
+        homeText.appendChild(span);
+
+        span.addEventListener("mouseenter", function () {
+          setTimeout(function () {
+            span.style.fontSize = "1.8rem";
+          }, index * 100); // 글자마다 0.1초씩 지연시킴
+
+          span.style.transition = "font-size 0.2s";
+        });
+
+        span.addEventListener("mouseleave", function () {
+          span.style.fontSize = "";
+        });
+      });
+    });
+  </script>
+
   <body>
-    처음 연습하는 깃허브 호스팅입니다.
+    <div class="container">
+      <nav class="category">
+        <svg
+          class="logo"
+          xmlns="http://www.w3.org/2000/svg"
+          width="40"
+          height="40"
+          viewBox="0 0 24 24"
+          style="fill: rgba(190, 10, 10, 0.9); transform: 0"
+        >
+          <path
+            d="M12 10c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm6 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zM6 10c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"
+          ></path>
+        </svg>
+        <!--main1-->
+        <div class="main1">
+          <div class="hometext">
+            <h1 class="home_text">
+              早くまた春が来てほしい。今年は時間があれば日本に旅行していくべきだ。
+              <p class="wavetext relative">今はウェブページ作る課題の中だ。</p>
+            </h1>
+          </div>
+          <!--main2-->
+          <div class="main2 relative">
+            <img
+              class="MountFuji absolute"
+              style="width: 80%; height: 100%; filter: grayscale(90%)"
+              src="./asset/Japan1.png"
+            />
+            <p class="fuji absolute">ふじさん</p>
+          </div>
+          <!--main3-->
+          <div class="main3 relative">
+            <p class="whattoeat absolute">行きたいレストラン</p>
+            <img class="restaurant absolute" style="height: 100%" src="./asset/Japan2.webp" />
+            <p class="operation absolute">
+              Hours of Operation:<br />
+              Fri - Sun: 11AM - 7PM<br />
+              Break Time: 3PM - 4PM
+            </p>
+          </div>
+          <!--main4-->
+          <div class="main4 relative">
+            <div class="texts flex absolute">
+              <p class="text1">予想</p>
+              <p class="text2">Expected<br />Dates</p>
+              <p class="text1">日付</p>
+            </div>
+            <div class="dashcontainer absolute">
+              <p class="dashedline">===========================================</p>
+            </div>
+            <div class="dates absolute flex">
+              <div class="date flex">
+                <p>6/20</p>
+                <p>ただ私の姉の誕生日<br />だから入れてみた。</p>
+              </div>
+              <div class="date flex">
+                <p>7/7</p>
+                <p>本当にお母さんが7月に行こ<br />うとしても可能かもしれません。。</p>
+              </div>
+              <div class="date flex">
+                <p>10/13</p>
+                <p>これはちょうど私の誕生日<br />だから入れた。</p>
+              </div>
+            </div>
+            <div class="dashcontainer2 absolute">
+              <p class="dashedline">===========================================</p>
+            </div>
+          </div>
+          <!--footer-->
+          <div class="footer absolute">Copyright© 2023. Dain. All rights reserved.</div>
+        </div>
+        <!--sidebar-->
+
+        <a class="sd food"> &nbsp;スケジュール</a>
+        <a class="sd retail">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;フォトブック</a>
+        <a class="sd community"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ありがとう</a>
+      </nav>
+    </div>
+    <script src="https://tistory3.daumcdn.net/tistory/941717/skin/images/jquery.min.js" type="text/javascript"></script>
+    <script
+      src="https://tistory3.daumcdn.net/tistory/941717/skin/images/snowfall.jquery.js"
+      type="text/javascript"
+    ></script>
+    <script>
+      $(document).ready(function () {
+        $(document).snowfall({ deviceorientation: true, round: true, minSize: 1, maxSize: 8, flakeCount: 250 });
+      });
+    </script>
   </body>
 </html>
